@@ -2,7 +2,7 @@
 Solution for the 4th Evidence of the TC2037 Course at ITESM. Demonstration of a Programing Paradigm.
 Armando Fuentes Silva - A01712074
 
-## Paradigm - Concurrency
+## Paradigm definition - Concurrency
 First of all, let's take a quick look to the definition of a paradigm, a programing paradigm can be defined as a methodology for problem-solving using the tools and techniques available to us, following a particular approach. There are many different paradigms that provide solutions to a diverse number of demands and challenges in software development. Particullary I'm going to focus in the paradigms we had the chance to look further into in this course. 
 
 **1. Logic programming.**
