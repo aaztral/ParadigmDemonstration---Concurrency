@@ -1,5 +1,5 @@
 # ParadigmDemonstration---Concurrency
-Solution for the 4th Evidence of the TC2037 Course at ITESM. Demonstration of a Programing Paradigm.
+Solution for the 4th Evidence of the TC2037 Course at ITESM. Demonstration of a Programing Paradigm. 
 Armando Fuentes Silva - A01712074
 
 ## Paradigm definition - Concurrency
