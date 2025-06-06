@@ -11,7 +11,6 @@ using namespace std;
 class ZeroEvenOdd {
 private:
     int n;
-    int count = 1;
     mutex mtx;
     condition_variable cv;
     int state = 0; 
