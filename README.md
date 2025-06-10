@@ -115,7 +115,7 @@ int main() {
 ```
 So our job is to build the Zero, Even and Odd functions in a way that the print order is correct while having no control over the executiiom order. 
 
-Imagine the sequence is Odd -> Even -> Zero, when Odd tries to execute and print an Odd number we gotta *lock it*, basically tell the function to wait it out, this is not their job, because we need to print a 0 firstThe exact thing we gotta do with the Even function, and when we finally reach Zero it should print. This should be the case no matter the oprder of execution. How do we do this? When the function executing has fiunished printing the number it should, it notifies the other functions to check out if its their turn, in this case Zero prints 0 and tells the other functions it finished, they check a variable that tells them if it's Odd's or Even's turn modified by Zero, and the choosen one executes next. This is why we lock it, when we are sharing the same variablewith the purpouse of modifying it we gotta lock it to prevent two threads to try and use the same variable and getting stuck. 
+Imagine the sequence is Odd -> Even -> Zero, when Odd tries to execute and print an Odd number we gotta *lock it*, basically tell the function to wait it out, this is not their job, because we need to print a 0 firstThe exact thing we gotta do with the Even function, and when we finally reach Zero it should print. This should be the case no matter the order of execution. How do we do this? When the function executing has fiunished printing the number it should, it notifies the other functions to check out if its their turn, in this case Zero prints 0 and tells the other functions it finished, they check a variable that tells them if it's Odd's or Even's turn modified by Zero, and the choosen one executes next. This is why we lock it, when we are sharing the same variable with the purpouse of modifying it we gotta lock it to prevent two threads to try and use the same variable and getting stuck. 
 
 ### Lets explain the code
 
@@ -152,7 +152,7 @@ void zero(function<void(int)> printNumber) {
     }
 }
 ```
-We create a unique_lock with the help of mutex, this is easier and cleaner than just declaring a bunch of locks, we use conditional value to wait out our print opperation, we check if its our turn in this case the state must equal 0 to continue. We just print our 0, which it's always the case for Zero, we do a simple math equation to check if i is even or odd, to figure out our next state and we notify Even and Odd through our cv when we finish. 
+We create a unique_lock with the help of mutex, this is easier and cleaner than just declaring a bunch of locks, we use conditional variable to wait out our print opperation, we check if its our turn in this case the state must equal 0 to continue. We just print our 0, which it's always the case for Zero, we do a simple math equation to check if i is even or odd, to figure out our next state and we notify Even and Odd through our cv when we finish. 
 
 ```
 void even(function<void(int)> printNumber) {
